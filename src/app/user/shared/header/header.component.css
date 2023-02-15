@@ -11,3 +11,14 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.button-item{
+    color: white;
+    margin-right: 10px;
+    margin-right: 5px;
+    background-color: green;
+}
+
+.logo-info{
+    margin: 10px;
+}
