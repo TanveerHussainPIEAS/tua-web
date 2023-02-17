@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './user/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDialogComponent } from './user/shared/product-dialog/product-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ProductDialogComponent]
 })
 export class AppModule { }

@@ -1,1 +1,29 @@
-<p>home works!</p>
+<div class="main">
+   <div class="top-items">
+    <!-- Add Top items here -->
+   </div>
+   <div class="products-view">
+    <div class="product-item" *ngFor="let product of products">
+        <div class="product-container">
+            <div class="product-image-container">
+                <img class="product-image" src="{{product.productImages[0].url}}">
+            </div>
+            <div class="product-details-container">
+                {{product.details}}
+            </div>
+            <div class="product-actions-container">
+                <div class="action-buttons actions" style="cursor: pointer;">
+                    <a (click)="openDialog(product.id==null ? 2 : this.product.id)"><mat-icon >visibility</mat-icon></a>
+                    <mat-icon>favorite_border</mat-icon>
+                </div>
+                <div class="product-tag actions">
+                    New Arrival
+                </div>
+                <div class="product-prices actions">
+                   <strong> $2500 </strong>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+</div>

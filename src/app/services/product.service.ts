@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
+import { Product } from '../models/product';
 import { ResponsePayloadDTO } from '../models/ResponsePayloadDTO';
 
 @Injectable({
@@ -11,9 +12,15 @@ import { ResponsePayloadDTO } from '../models/ResponsePayloadDTO';
 export class ProductService {
   constructor(private httpClient: HttpClient) {}
 
-  getAllProducts(): Observable<ResponsePayloadDTO<any>> {
-    return this.httpClient.get<ResponsePayloadDTO<any>>(
+  getAllProducts(): Observable<ResponsePayloadDTO<Product[]>> {
+    return this.httpClient.get<ResponsePayloadDTO<Product[]>>(
       `${environment.tuaApiBaseUrl}/products`
+    );
+  }
+
+  getAllProductById(id:number): Observable<ResponsePayloadDTO<Product>> {
+    return this.httpClient.get<ResponsePayloadDTO<Product>>(
+      `${environment.tuaApiBaseUrl}/products/${id}`
     );
   }
 
