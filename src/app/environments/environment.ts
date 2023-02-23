@@ -23,6 +23,6 @@ export const environment = {
   b2cScopes: ['https://dispatchone.onmicrosoft.com/identity-api/identity.write', 'https://dispatchone.onmicrosoft.com/identity-api/identity.read'],
   pbiWorkSpaceId: "63ca91bc-f86f-4c5f-8472-494f10beb329",
   pbiSalesDealsReportId: "4fae773d-0594-4820-b2ea-158b6f798f8a",
-  apimSubscriptionKey: "8421a541f5234d77b7d1697bd62f89f8",
+  // temp-text-to-be-removed-Git-Ignore-apimSubscriptionKey: "8421a541f5234d77b7d1697bd62f89f8",
   tuaApiBaseUrl: 'https://localhost:7134/api',
 };
