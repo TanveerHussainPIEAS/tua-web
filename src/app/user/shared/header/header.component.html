@@ -4,13 +4,23 @@
     </div>
 
     <div class="action-buttons">
-        <button class="button-item" mat-raised-button style="background-color: green; color: white;"
+        <span>
+            <button class="button-item" mat-raised-button style="background-color: green; color: white;"
             routerLink="/">Home</button>
-        <button class="button-item" mat-raised-button style="background-color: green; color: white;"
+        </span>
+        <span>
+            <button class="button-item" mat-raised-button style="background-color: green; color: white;"
             routerLink="/about">About</button>
-        <button class="button-item" mat-raised-button style="background-color: green; color: white;"
+        </span>
+        <span>
+            <button class="button-item" mat-raised-button style="background-color: green; color: white;"
             routerLink="/contact">Contact</button>
-
+        </span>
+        <span >
+            <button class="button-item" mat-raised-button style="background-color: green; color: white;"
+            (click)="openDialog()">Account</button>
+        </span>        
+        
     </div>
 </div>
 <router-outlet></router-outlet>

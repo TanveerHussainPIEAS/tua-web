@@ -9,3 +9,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 mat-icon{
     color: rgb(36, 123, 245);
 }
+
+.component-tilte{
+    background-color: rgb(227, 230, 233);
+    color: black;
+    font-size: large;
+    font-weight: 500;
+    padding: 30px;
+}
+
+mat-form-field{
+    width: 400px;
+}

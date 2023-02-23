@@ -2,9 +2,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../environments/environment';
-import { Product } from '../models/product';
-import { ResponsePayloadDTO } from '../models/ResponsePayloadDTO';
+import { environment } from 'src/app/environments/environment';
+import { Product } from 'src/app/models/product';
+import { ResponsePayloadDTO } from 'src/app/models/ResponsePayloadDTO';
+
 
 @Injectable({
   providedIn: 'root',

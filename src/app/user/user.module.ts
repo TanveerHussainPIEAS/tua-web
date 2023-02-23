@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { LogInComponent } from './log-in/log-in.component';
 import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, }  , 
@@ -27,6 +28,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     AngularMaterialModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   exports: [RouterModule],
 })
