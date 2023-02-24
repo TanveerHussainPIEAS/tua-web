@@ -70,6 +70,14 @@ openDialog(productId:number) {
     //Get logged-in-user
     let user=this.localStorageService.getItem('logged-in-user')
     console.log('Logged In User is here: ',user);
+    this.getItem();
     //If user is logged-in, get his/her prefered details
+  }
+
+  getItem(): void {
+    this.localStorageService.getItem('logged-in-user').subscribe(value => {
+      console.log(typeof value); // should be the type you're expecting, e.g. string, number, object, etc.
+      console.log(value); // should print the value stored in the storage
+    });
   }
 }
