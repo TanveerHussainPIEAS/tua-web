@@ -11,10 +11,10 @@ export interface LoginModel {
     userName: string;
     name: string;
     token: string;
-    userPermission: UserPermission;
+    permission: Permission;
   }
 
-  export interface UserPermission {
+  export interface Permission {
     id:number;
     userId: number;
     canAddProduct: boolean; 

@@ -8,6 +8,7 @@ import { AuthenticatedUser, LoginModel } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { ProductService } from 'src/app/services/product/product.service';
+import { SharedInfo } from '../shared/shared-info';
 
 @Component({
   selector: 'app-log-in',
@@ -60,8 +61,8 @@ export class LogInComponent {
         next: (res) => {
           if (res.statusCode == 200) {
             this.uuthenticatedUser = res.results;
-            console.log('uuthenticatedUser++++ : ', this.uuthenticatedUser);
-            this.localStorageService.setItem('logged-in-user',this.uuthenticatedUser);            
+            this.localStorageService.setItem('logged-in-user',this.uuthenticatedUser);  
+            SharedInfo.loggedInUser= this.uuthenticatedUser;         
             this.toastr.success('Success', 'Logged In Sucessfuly');
             this.dialogRef.close(0);
           }

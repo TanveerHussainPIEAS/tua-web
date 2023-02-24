@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/product';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { ProductDialogComponent } from '../shared/product-dialog/product-dialog.component';
+import { SharedInfo } from '../shared/shared-info';
 
 @Component({
   selector: 'app-home',
@@ -78,6 +79,8 @@ openDialog(productId:number) {
     this.localStorageService.getItem('logged-in-user').subscribe(value => {
       console.log(typeof value); // should be the type you're expecting, e.g. string, number, object, etc.
       console.log(value); // should print the value stored in the storage
+      SharedInfo.loggedInUser= value;   
+      debugger;
     });
   }
 }
