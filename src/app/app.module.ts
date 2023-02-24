@@ -21,7 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

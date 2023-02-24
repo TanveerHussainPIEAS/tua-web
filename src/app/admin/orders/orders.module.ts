@@ -8,10 +8,9 @@ import { AngularMaterialModule } from 'src/app/angular-material/angular-material
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: OrdersListComponent
-  }
+  { path: '', component: OrdersListComponent },
+  { path: 'add', component: EditOrderComponent },
+  { path: 'edit/:orderId', component: EditOrderComponent }
 ];
 
 @NgModule({
