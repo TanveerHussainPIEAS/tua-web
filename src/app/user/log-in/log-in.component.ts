@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
 import { AuthenticatedUser, LoginModel } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
@@ -25,6 +26,7 @@ export class LogInComponent {
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private dialogRef: MatDialogRef<LogInComponent>,
+    private localStorageService: LocalStorageService,
     @Inject(MAT_DIALOG_DATA) data: any) {
 
     this.title = data.title;
@@ -36,18 +38,13 @@ export class LogInComponent {
   });
 
   ngOnInit() {
-    debugger;
-    // this.getProductById();
-    this.toastr.error('Something went wrong while loading competencies');
   }
 
   createAccount() {
     this.dialogRef.close(0);
   }
 
-  signIn() {
-
-    debugger
+  signIn() {    
     let loginModel: LoginModel = {
       email: this.profileForm.value.email == null ? '' : this.profileForm.value.email,
       password: this.profileForm.value.password == null ? '' : this.profileForm.value.password,
@@ -64,25 +61,22 @@ export class LogInComponent {
           if (res.statusCode == 200) {
             this.uuthenticatedUser = res.results;
             console.log('uuthenticatedUser++++ : ', this.uuthenticatedUser);
+            this.localStorageService.setItem('logged-in-user',this.uuthenticatedUser);            
+            this.toastr.success('Success', 'Logged In Sucessfuly');
             this.dialogRef.close(0);
           }
           
         },
-        error: (err) => {
-          debugger
+        error: (err) => {          
           if (err.status == 401) {
-            this.toastr.success('Message', 'Title');
-            // this.toastr.error('Something went wrong while loading competencies');
+            this.toastr.error('Error','Invalid email or password');
             // this._snackBar.open('Invalid email or password' , 'Close', {
             //   horizontalPosition: 'right',
             //   verticalPosition: 'bottom',
             // });
           }
           else{
-            this._snackBar.open('Something went wrong' , 'Close', {
-              horizontalPosition: 'right',
-              verticalPosition: 'bottom',
-            });
+            this.toastr.error('Error','Something went wrong.');
           }
           
         }

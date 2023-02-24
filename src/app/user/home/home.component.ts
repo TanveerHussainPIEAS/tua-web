@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from 'src/app/models/product';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { ProductDialogComponent } from '../shared/product-dialog/product-dialog.component';
 
@@ -16,11 +17,13 @@ export class HomeComponent {
   constructor(
     private productService: ProductService,
     private _snackBar: MatSnackBar,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private localStorageService: LocalStorageService,
     ) { }
 
   ngOnInit(): void {
     this.getProducts();
+    this.setUserPreference();
   }
 
 openDialog(productId:number) {
@@ -61,5 +64,12 @@ openDialog(productId:number) {
           });
         }
       });
+  }
+
+  setUserPreference(){
+    //Get logged-in-user
+    let user=this.localStorageService.getItem('logged-in-user')
+    console.log('Logged In User is here: ',user);
+    //If user is logged-in, get his/her prefered details
   }
 }
