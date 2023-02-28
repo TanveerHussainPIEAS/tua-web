@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', component: HeaderComponent, loadChildren: () => import('./user/user.module').then(c => c.UserModule)},
   { path: 'orders', component: AdminHeaderComponent, loadChildren: () => import('./admin/orders/orders.module').then(c => c.OrdersModule)},
   { path: 'products', component: AdminHeaderComponent, loadChildren: () => import('./admin/product/product.module').then(c => c.ProductModule)},  
+  { path: 'users', component: AdminHeaderComponent, loadChildren: () => import('./admin/users/users.module').then(c => c.UsersModule)},  
   { path: 'unauthorized', component: UnauthorizedComponent},  
 ];
 
