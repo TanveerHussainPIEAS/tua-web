@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from 'src/app/models/product';
+import { LoaderService } from 'src/app/services/loader/loader.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { ProductDialogComponent } from '../shared/product-dialog/product-dialog.component';
@@ -20,6 +21,7 @@ export class HomeComponent {
     private _snackBar: MatSnackBar,
     private dialog: MatDialog,
     private localStorageService: LocalStorageService,
+    private loaderService: LoaderService,
     ) { }
 
   ngOnInit(): void {
@@ -50,12 +52,14 @@ openDialog(productId:number) {
 
 
   private getProducts() {
+    this.loaderService.show();
     this.productService.getAllProducts()
       .subscribe({
         next: (res) => {
           if (res.statusCode == 200) {
              console.log('Products',res.results);
-             this.products=res.results;             
+             this.products=res.results;  
+             this.loaderService.hide();           
           }
         },
         error: (err) => {
@@ -63,6 +67,7 @@ openDialog(productId:number) {
             horizontalPosition: 'right',
             verticalPosition: 'bottom',
           });
+          this.loaderService.hide();
         }
       });
   }

@@ -10,7 +10,7 @@ import { LogInComponent } from '../../log-in/log-in.component';
 export class HeaderComponent {
 
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
     ) { }
   openDialog() {
     const dialogConfig = new MatDialogConfig();

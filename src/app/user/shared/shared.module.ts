@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from 'src/app/angular-material/angular-material.module';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
@@ -12,12 +13,14 @@ import { ProductDialogComponent } from './product-dialog/product-dialog.componen
   declarations: [
     HeaderComponent,
     FooterComponent,
-    ProductDialogComponent
+    ProductDialogComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     AngularMaterialModule
-  ]
+  ],
+  exports:[LoaderComponent]
 })
 export class SharedModule { }

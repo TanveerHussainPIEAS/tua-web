@@ -10,6 +10,9 @@ mat-icon{
     color: rgb(36, 123, 245);
 }
 
+mat-spinner{
+    color: rgb(36, 123, 245) !important;
+}
 .component-tilte{
     background-color: rgb(227, 230, 233);
     color: black;
@@ -21,3 +24,28 @@ mat-icon{
 mat-form-field{
     width: 400px;
 }
+
+
+.spinner-wrapper{
+    margin: -10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .9);
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .spinner-image{
+    width: 90px;
+    height: 90px;
+  }
+  .spinner-image img{
+    -webkit-animation: rotateAnimation 2s linear infinite;
+    animation: rotateAnimation 2s linear infinite;
+    width: 100%;
+  }
